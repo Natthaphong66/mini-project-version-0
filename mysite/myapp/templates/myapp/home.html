@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EzShop - ซื้อ-ขายง่าย ปลอดภัย</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-100 min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="{% url 'home' %}" class="text-2xl font-bold text-red-600">🛒 EzShop</a>
+            <div class="flex items-center gap-4">
+                <a href="{% url 'products' %}"
+                    class="text-slate-600 hover:text-red-600 transition-colors">สินค้าทั้งหมด</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner -->
+    <div class="w-full bg-gradient-to-r from-red-600 to-red-700 text-white py-16 md:py-20 lg:py-24 shadow-lg">
+        <div class="text-center px-6">
+            <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">
+                ซื้อ-ขายง่าย ปลอดภัยกับ EzShop
+            </h1>
+            <p class="text-white text-base md:text-lg lg:text-xl">
+                ลงประกาศขายสินค้าของคุณ หรือค้นหาของดีราคาถูกจากผู้ใช้คนอื่น
+            </p>
+        </div>
+    </div>
+
+    <!-- Category Navigation -->
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 mb-8">
+            <div class="flex items-center justify-center gap-4 flex-wrap">
+                <a href="{% url 'products' %}?category=electronics"
+                    class="flex flex-col items-center gap-2 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors group min-w-[80px]">
+                    <div class="w-12 h-12 flex items-center justify-center text-3xl">📱</div>
+                    <span
+                        class="text-xs font-medium text-slate-600 group-hover:text-blue-600 text-center">อิเล็กทรอนิกส์</span>
+                </a>
+                <a href="{% url 'products' %}?category=fashion"
+                    class="flex flex-col items-center gap-2 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors group min-w-[80px]">
+                    <div class="w-12 h-12 flex items-center justify-center text-3xl">👕</div>
+                    <span class="text-xs font-medium text-slate-600 group-hover:text-blue-600 text-center">แฟชั่น</span>
+                </a>
+                <a href="{% url 'products' %}?category=home"
+                    class="flex flex-col items-center gap-2 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors group min-w-[80px]">
+                    <div class="w-12 h-12 flex items-center justify-center text-3xl">🏠</div>
+                    <span
+                        class="text-xs font-medium text-slate-600 group-hover:text-blue-600 text-center">บ้านและสวน</span>
+                </a>
+                <a href="{% url 'products' %}?category=sports"
+                    class="flex flex-col items-center gap-2 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors group min-w-[80px]">
+                    <div class="w-12 h-12 flex items-center justify-center text-3xl">⚽</div>
+                    <span class="text-xs font-medium text-slate-600 group-hover:text-blue-600 text-center">กีฬา</span>
+                </a>
+                <a href="{% url 'products' %}?category=books"
+                    class="flex flex-col items-center gap-2 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors group min-w-[80px]">
+                    <div class="w-12 h-12 flex items-center justify-center text-3xl">📚</div>
+                    <span
+                        class="text-xs font-medium text-slate-600 group-hover:text-blue-600 text-center">หนังสือ</span>
+                </a>
+                <a href="{% url 'products' %}?category=beauty"
+                    class="flex flex-col items-center gap-2 px-4 py-2 rounded-lg hover:bg-blue-50 transition-colors group min-w-[80px]">
+                    <div class="w-12 h-12 flex items-center justify-center text-3xl">💄</div>
+                    <span
+                        class="text-xs font-medium text-slate-600 group-hover:text-blue-600 text-center">ความงาม</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Featured Products Section -->
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-xl font-bold text-slate-900">สินค้าใหม่ล่าสุด</h2>
+            <a href="{% url 'products' %}" class="text-sm text-blue-600 hover:underline">ดูทั้งหมด</a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 md:gap-4">
+            {% for product in featured_products %}
+            <a href="#"
+                class="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-lg transition-all duration-200 border border-slate-200 group h-full flex flex-col">
+                <div class="relative aspect-square bg-slate-100 overflow-hidden flex items-center justify-center">
+                    <svg class="w-16 h-16 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                </div>
+                <div class="p-3 flex-1 flex flex-col">
+                    <h3
+                        class="font-medium text-slate-900 text-base line-clamp-2 mb-1.5 group-hover:text-blue-600 transition-colors">
+                        {{ product.name }}
+                    </h3>
+                    <p class="text-xs text-slate-500 truncate mb-1 mt-auto">
+                        หมวดหมู่: {{ product.category }}
+                    </p>
+                    <p class="text-red-600 font-bold text-sm">
+                        ฿ {{ product.price|floatformat:0 }}
+                    </p>
+                </div>
+            </a>
+            {% empty %}
+            <div class="col-span-full text-center py-12">
+                <div class="text-6xl mb-4">📦</div>
+                <p class="text-slate-500 text-lg">ยังไม่มีสินค้า</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-slate-400">© 2025 EzShop - Mini Project Version 0</p>
+        </div>
+    </footer>
+</body>
+
+</html>
