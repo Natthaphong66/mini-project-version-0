@@ -69,17 +69,4 @@ mini-project-version-0/
 | `/`          | Home     | หน้าแรก แสดง banner และหมวดหมู่สินค้า |
 | `/products/` | Products | หน้ารายการสินค้าทั้งหมด               |
 
-## เทคโนโลยีที่ใช้
 
-- **Backend:** Django 6.0
-- **Frontend:** HTML, Tailwind CSS
-- **Database:** SQLite (default)
-
-## ผู้พัฒนา
-
-- **Name:** Natthaphong
-- **GitHub:** [Natthaphong66](https://github.com/Natthaphong66)
-
-## License
-
-MIT License
